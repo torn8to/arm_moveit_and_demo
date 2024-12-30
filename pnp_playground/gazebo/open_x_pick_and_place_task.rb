@@ -389,6 +389,41 @@
       </sensor>
       </link>
     </model>
+    <% number_of_items = Random.rand(7..12)%>
+     <%for a in 1..number_of_items do%>
+     <model name="object<%a%>">
+        <pose> 0 0 0 0 0 0</pose>
+        <link name="body">
+          <visual>
+            <geometry>
+              <cylinder>
+              <length><%Random.rand(0.04..0.14)%></length>
+              <radius><%Random.rand(0.021..0.031)%></radius>
+              </cylinider>
+              <%color=Random.rand(1.0..2.0)%>
+              <material>
+                <$ if color > 1.5 $>
+                   <ambient>1 0 0 1</ambient>
+                  <diffuse>1 0 0 1</diffuse>
+                  <specular>1 0 0 1</specular>
+              <% else %>
+                <ambient>0 1 0 1</ambient>
+                <diffuse>0 1 0 1</diffuse>
+                <specular>0 1 0 1</specular>
+
+              <% end %>
+              </material>
+                <diffuse
+              </materail>
+            </geometry>
+
+          </visual>
+          <collision>
+
+          </collision>
+        </link>
+      </model>
+    <% end %>
 
          <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Table</uri>

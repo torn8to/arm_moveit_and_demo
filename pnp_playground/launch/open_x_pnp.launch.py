@@ -6,11 +6,10 @@ from launch.substitutions import Command, LaunchConfiguration
 from launch_ros import parameter_descriptions as pd
 from launch_ros.actions import Node
 
-
 def generate_launch_description():
     package_path = 'open_manipulator_x_description'
     model_path = "open_manipulator_demo_with_camera.urdf.xacro"
-    sdf_file_default = "ArmTaskPlayground.sdf"
+    sdf_file_default = "open_x_pick_and_place_task.sdf"
     playground_package_path = get_package_share_path('pnp_playground')
 
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -44,6 +43,8 @@ def generate_launch_description():
                                         '/depth_camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
                                        '/depth_camera@sensor_msgs/msg/Image@gz.msgs.Image',
                                        '/depth_camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked',
+                                       '/model/conveyor/link/base_link/track_cmd_vel@std_msgs/msg/Float64@gz.msgs.Double',
+                                       '/conveyor_laser@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan'
                                    ])
 
     robot_state_publisher = Node(package="robot_state_publisher",
@@ -74,8 +75,8 @@ def generate_launch_description():
 
     return LaunchDescription([gz_sim_command,
                               ros_gz_parameter_bridge,
-                              controller_manager,
+                              #controller_manager,
                               gz_spawn_entity,
                               use_sim_time_arg,
                               robot_state_publisher,
-                              joint_state_publisher]::
+                              joint_state_publisher])

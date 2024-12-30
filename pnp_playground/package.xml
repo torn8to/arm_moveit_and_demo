@@ -13,6 +13,9 @@
   <depend>launch_ros</depend>
   <depend>ros_gz_sim</depend>
   <depend>open_x_manipulator_description</depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
