@@ -2,7 +2,7 @@ from sensor_msgs.msg import Image
 from rclpy.time import Time
 
 
-def ImageMsgsIsCloseInTime(msg1: Image, msg2: Image, threshole:int = 10000) -> bool:
+def ImageMsgsIsCloseInTime(msg1: Image, msg2: Image, threshold:int = 10000) -> bool:
   time1:Time = Time.from_msg(msg1.header.stamp)
   time2:Time = Time.from_msg(msg2.header.stamp)
   return  abs(time_to_number(time1) - time_to_number(time2)) < threshold

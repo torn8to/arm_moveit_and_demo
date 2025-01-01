@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'camera_processing_nodes'
 
@@ -10,6 +12,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share/' , package_name, package_name), glob("camera_processing_nodes/*.py")),
+        (os.path.join('share/' , package_name, "config"), glob("config/*.yaml")),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
