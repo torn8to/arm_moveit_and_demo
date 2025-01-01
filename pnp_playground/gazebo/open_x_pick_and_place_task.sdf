@@ -388,8 +388,62 @@
         <visualize>true</visualize>
       </sensor>
       </link>
-    </model>
+      </model>
+    <model name="red_cylinder_generic">
+      <pose>0.4 0.2 1.25 0 0 0</pose>
+      <link name="cyl">
+        <visual name="main_visual">
+          <geometry>
+                        <cylinder>
+                            <length>0.24</length>
+                            <radius>0.1</radius>
+                        </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1.0  0 0 1 </diffuse>
+            <specular>1.0 0 0 1</specular>
+          </material>
+        </visual>
+        
+        <collision name='main_collision'>
+          <geometry>
+                        <cylinder>
+                            <length>0.2</length>
+                            <radius>0.05</radius>
+                        </cylinder>
+          </geometry>
+        </collision>
+        </link>
 
+    </model>
+    <model name="blue_cylinder_generic">
+      <pose>0.3 -0.2 1.25 0 0 0</pose>
+      <link name="cyl">
+        <visual name="main_visual">
+          <geometry>
+                        <cylinder>
+                            <length>0.2</length>
+                            <radius>0.05</radius>
+                        </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1 </diffuse>
+            <specular>0 0 1 1</specular>
+          </material>
+        </visual>
+        
+        <collision name='main_collision'>
+          <geometry>
+                        <cylinder>
+                            <length>0.2</length>
+                            <radius>0.05</radius>
+                        </cylinder>
+          </geometry>
+        </collision>
+        </link>
+    </model>
          <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Table</uri>
           <static>true</static>
